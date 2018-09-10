@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component,Input } from '@angular/core';
+import {JSHINT} from 'jshint';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'JS-Validator';
+  
+  @Input() errors: String;
+  @Input() jsCode: String;
+  
+  linter(event:string){
+    
+    JSHINT(event);
+    this.errors = JSHINT.errors;
+    this.jsCode = event;  
+  }
 }

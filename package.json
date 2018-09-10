@@ -20,8 +20,18 @@
     "@angular/platform-browser": "^6.1.0",
     "@angular/platform-browser-dynamic": "^6.1.0",
     "@angular/router": "^6.1.0",
+    "@ng-bootstrap/ng-bootstrap": "^3.2.0",
+    "bootstrap": "^4.0.0-alpha.6",
     "core-js": "^2.5.4",
+    "esprima": "^4.0.1",
+    "fs": "0.0.1-security",
+    "jquery": "^3.3.1",
+    "jshint": "^2.9.6",
+    "jslint": "^0.12.0",
+    "path": "^0.12.7",
     "rxjs": "^6.0.0",
+    "stream": "0.0.2",
+    "vm": "^0.1.0",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
@@ -44,5 +54,10 @@
     "ts-node": "~5.0.1",
     "tslint": "~5.9.1",
     "typescript": "~2.7.2"
+  },
+  "browser": {
+    "fs": false,
+    "os": false,
+    "path": false
   }
 }
