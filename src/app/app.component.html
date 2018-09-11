@@ -10,12 +10,51 @@
       (keyup)="linter(jscode.value)">
 
 </textarea>
+
 <span class="badge badge-success" *ngIf="errors.length==0 && jsCode.length>0">Valid</span> <span
                 class="badge badge-info" *ngIf="jsCode.length==0">Write Something</span> <span class="badge badge-danger"
                 *ngIf="errors.length>0 && jsCode.length>0">{{errors.length}} errors found</span>
     </div>
     <div class="col-lg-6">
-      
+      <div class="table-container" *ngIf="errors.length>0">
+        <div class="display-5 text-center status">Error Report</div>
+        <table class="table">
+            <thead class="thead-default">
+                <tr>
+                    <th class="col-xs-1">#</th>
+                    <th class="col-xs-4">Evidence</th>
+                    <th class="col-xs-7">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let error of errors;let i = index">
+                    <td class="col-xs-1">{{i}}</td>
+                    <td class="col-xs-1">{{ error.evidence }}</td>
+                    <td class="col-xs-1">{{ error.reason }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="table-container" *ngIf="errors.length==0 && jsCode.length>0">
+      <div class="display-5 text-center status">Success Report</div>
+      <table class="table">
+          <thead class="thead-default">
+              <tr>
+                  <th class="col-xs-1">#</th>
+                  <th class="col-xs-4">Property</th>
+                  <th class="col-xs-7">Description</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let row of results;let i=index">
+                  <td>{{i}}</td>
+                  <td>{{ row[0] }}</td>
+                  <td>{{ row[1] }}</td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
       </div>
   </div>
 </div>

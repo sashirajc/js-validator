@@ -9,13 +9,20 @@ import {JSHINT} from 'jshint';
 export class AppComponent {
   title = 'JS-Validator';
   
-  @Input() errors: String;
+  @Input() errors: string;
   @Input() jsCode: String;
+  @Input() results: Array<Object>;
   
+  constructor(){
+    this.errors='';
+    this.jsCode= '';
+  }
+
   linter(event:string){
     
     JSHINT(event);
     this.errors = JSHINT.errors;
     this.jsCode = event;  
+    this.results = Object.entries(JSHINT.data());
   }
 }
